@@ -6,8 +6,8 @@
 
 ```
 ws-springx
-|--ws-springx-all Spring扩展
-|--ws-springx-all-test Spring扩展测试
+|--ws-springx-common Spring扩展
+|--ws-springx-common-test Spring扩展测试
 |--ws-springx-mybatis Mybatis-Spring扩展
 |--ws-springx-mybatis-test Mybatis-Spring扩展测试
 ```
