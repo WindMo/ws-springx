@@ -6,7 +6,6 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -107,7 +106,6 @@ public class PageControllerTests extends WsMybatisSpringExtendApplicationTests {
     }
 
     @Test
-    @Disabled
     public void queryPersonWithDiffParamType(@Autowired MockMvc mvc) throws Exception {
 
         int pageNum = 1;

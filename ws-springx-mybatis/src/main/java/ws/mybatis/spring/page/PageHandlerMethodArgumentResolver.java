@@ -1,6 +1,7 @@
 package ws.mybatis.spring.page;
 
 import org.springframework.core.MethodParameter;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -28,12 +29,22 @@ class PageHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
 
         if (parameter.hasParameterAnnotation(PageNumber.class)) {
-
-            return PageInfoHolder.getExpectedPageNum();
-        } else if (parameter.hasParameterAnnotation(PageSize.class)) {
-
-            return PageInfoHolder.getExpectedPageSize();
+            return tryConverter(PageInfoHolder.getExpectedPageNum(), parameter, webRequest, binderFactory);
+        }
+        if (parameter.hasParameterAnnotation(PageSize.class)) {
+            return tryConverter(PageInfoHolder.getExpectedPageSize(), parameter, webRequest, binderFactory);
         }
         throw new IllegalArgumentException("Unexpected parameter resolution");
+    }
+
+    private Object tryConverter(Integer value, MethodParameter parameter, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+
+        Class<?> parameterType = parameter.getParameterType();
+        if (parameterType.isAssignableFrom(Integer.class)) {
+            return value;
+        } else {
+            WebDataBinder binder = binderFactory.createBinder(webRequest, null, parameter.getParameterName());
+            return binder.convertIfNecessary(value, parameterType, parameter);
+        }
     }
 }
