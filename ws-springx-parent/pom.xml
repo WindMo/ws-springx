@@ -6,7 +6,7 @@
     <parent>
         <groupId>ws.spring</groupId>
         <artifactId>ws-springx</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <artifactId>ws-springx-parent</artifactId>
     <packaging>pom</packaging>
