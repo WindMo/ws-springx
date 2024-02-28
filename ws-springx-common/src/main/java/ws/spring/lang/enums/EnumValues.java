@@ -1,5 +1,7 @@
 package ws.spring.lang.enums;
 
+import org.springframework.core.ResolvableType;
+import org.springframework.core.convert.converter.ConverterRegistry;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
@@ -101,5 +103,18 @@ public class EnumValues {
     public static <E extends Enum<? extends EnumValue<T>>, T> boolean complyWith(@NonNull Class<E> enumType, @Nullable T value) {
 
         return value != null && getEnumValueMap(enumType).containsKey(value);
+    }
+
+    // ~ Converter support
+    // =====================================================================================
+
+    public static <E extends Enum<? extends EnumValue<T>>, T> void registerEnumValueConverter(@NonNull Class<E> enumType, ConverterRegistry registry) {
+
+        Class<T> valueType = (Class<T>) ResolvableType.forClass(enumType)
+                .as(EnumValue.class)
+                .resolveGeneric(0);
+        Assert.notNull(valueType, "Not found EnumValue interface on enumType: " + enumType);
+        registry.addConverter(valueType, enumType, value -> getEnum(enumType, value));
+        registry.addConverter(enumType, valueType, enumObj -> ((EnumValue<T>) enumObj).getValue());
     }
 }
