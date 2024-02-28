@@ -5,10 +5,18 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.multipart.MultipartFile;
+import ws.spring.testdemo.pojo.Person;
 import ws.spring.testdemo.validate.enums.Direction;
+import ws.spring.beans.SingleBean;
 import ws.spring.validate.annotation.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import java.lang.annotation.ElementType;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author WindShadow
@@ -96,5 +104,38 @@ public class ValidateServiceSupport {
     public void validateMultipartFile(@MultipartFileConstraint(contentTypes = {MediaType.MULTIPART_FORM_DATA_VALUE}, maxSize = 10L) MultipartFile multipartFile) {
 
         log.info("multipartFile: {}", multipartFile.getName());
+    }
+
+    // ~ SingleBean
+    // =====================================================================================
+
+    public void validateSingleString(@Valid SingleBean<@NotBlank String> bean) {
+
+        log.info("bean: {}", bean);
+    }
+
+    public void validateSingleInteger(@Valid SingleBean<@Min(0) Integer> bean) {
+
+        log.info("bean: {}", bean);
+    }
+
+    public void validateSingleObject(@Valid SingleBean<@NotBlank String> bean) {
+
+        log.info("bean: {}", bean);
+    }
+
+    public void validateSingleList(@Valid SingleBean<@NotEmpty List<@NotBlank String>> bean) {
+
+        log.info("bean: {}", bean);
+    }
+
+    public void validateSingleMap(@Valid SingleBean<@NotEmpty Map<@NotBlank String, @NotBlank String>> bean) {
+
+        log.info("bean: {}", bean);
+    }
+
+    public void validateSingleBean(@Valid SingleBean<@Valid Person> bean) {
+
+        log.info("bean: {}", bean);
     }
 }
