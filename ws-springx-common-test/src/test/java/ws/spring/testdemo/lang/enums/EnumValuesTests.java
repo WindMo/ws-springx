@@ -3,6 +3,8 @@ package ws.spring.testdemo.lang.enums;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.core.convert.support.ConfigurableConversionService;
+import org.springframework.core.convert.support.DefaultConversionService;
 import ws.spring.lang.enums.EnumValue;
 import ws.spring.lang.enums.EnumValues;
 
@@ -74,5 +76,17 @@ public class EnumValuesTests {
         log.info("IllegalArgumentException: {}", e.getMessage());
         e = Assertions.assertThrows(IllegalArgumentException.class, () -> EnumValues.preCacheEnumValue(OperateSystem.class));
         log.info("IllegalArgumentException: {}", e.getMessage());
+    }
+
+    @Test
+    void registerConverterTest() {
+
+        ConfigurableConversionService service = new DefaultConversionService();
+        EnumValues.registerEnumValueConverter(Way.class, service);
+
+        Assertions.assertTrue(service.canConvert(Way.class, Integer.class));
+        Assertions.assertTrue(service.canConvert(Integer.class, Way.class));
+        Assertions.assertSame(Way.Up, service.convert(Way.Up.getValue(), Way.class));
+        Assertions.assertSame(Way.Up.getValue(), service.convert(Way.Up, Integer.class));
     }
 }
