@@ -1,0 +1,12 @@
+server:
+  ssl:
+    enabled: true
+    key-store: classpath:ssl/cert/ws-serverCert.p12
+    key-store-type: PKCS12
+    key-store-password: ws-serverCertKeyPwd
+    key-password: ws-serverCertKeyPwd
+    key-alias: ws-serverCert
+    trust-store: classpath:ssl/trust/ws-trust.p12
+    trust-store-type: PKCS12
+    trust-store-password: ws-trustKeystorePwd
+    client-auth: need # 双向认证
