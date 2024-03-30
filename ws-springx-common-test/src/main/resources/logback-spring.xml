@@ -126,5 +126,6 @@
     <!-- spring框架出错或告警时才记录日志 -->
     <logger name="org.springframework" level="WARN" addtivity="true"/>
     <logger name="org.hibernate.validator" level="WARN" addtivity="true"/>
+    <logger name="org.apache.sshd" level="WARN" addtivity="true"/>
 
 </configuration>
