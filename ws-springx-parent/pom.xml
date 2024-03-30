@@ -19,6 +19,7 @@
     <properties>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <sshd-mina.version>2.12.0</sshd-mina.version>
         <bouncycastle.version>1.77</bouncycastle.version>
     </properties>
 
@@ -48,6 +49,11 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-mina</artifactId>
+                <version>${sshd-mina.version}</version>
             </dependency>
 
             <dependency>
