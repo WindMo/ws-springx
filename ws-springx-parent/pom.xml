@@ -19,6 +19,7 @@
     <properties>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <spring-boot.version>2.7.18</spring-boot.version>
+        <sshd-mina.version>2.12.0</sshd-mina.version>
         <bouncycastle.version>1.77</bouncycastle.version>
     </properties>
 
@@ -49,7 +50,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcpg-jdk18on</artifactId>
@@ -59,6 +59,11 @@
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcpkix-jdk18on</artifactId>
                 <version>${bouncycastle.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sshd</groupId>
+                <artifactId>sshd-mina</artifactId>
+                <version>${sshd-mina.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

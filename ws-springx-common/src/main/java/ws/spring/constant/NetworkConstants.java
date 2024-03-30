@@ -11,4 +11,6 @@ public interface NetworkConstants {
     String LOCALHOST_IP_V4 = "127.0.0.1";
 
     String IP_V4_ANY_ADDR = "0.0.0.0";
+
+    int RANDOM_PORT = 0;
 }

@@ -1,0 +1,2 @@
+ws.spring.ssh.autoconfigure.SshAutoConfiguration
+ws.spring.ssh.autoconfigure.MinaSshAutoConfiguration
