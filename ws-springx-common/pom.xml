@@ -26,6 +26,11 @@
             <artifactId>httpclient</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>org.apache.sshd</groupId>
+            <artifactId>sshd-mina</artifactId>
+            <optional>true</optional>
+        </dependency>
 
         <dependency>
             <groupId>org.bouncycastle</groupId>
