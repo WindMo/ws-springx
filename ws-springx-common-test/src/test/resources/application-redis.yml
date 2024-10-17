@@ -1,0 +1,10 @@
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 16379
+    database: 1
+
+app:
+  test:
+    redis:
+      config-line: "maxmemory 128M"
