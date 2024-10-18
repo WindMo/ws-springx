@@ -1,0 +1,23 @@
+spring:
+  ext:
+    dynamic-datasource:
+      enabled: true
+      data-sources:
+        - name: "dept"
+          type: org.h2.jdbcx.JdbcDataSource
+          url: jdbc:h2:mem:db_dept;DB_CLOSE_DELAY=1000
+          driver-class-name: org.h2.Driver
+          schema: classpath:db/dept-schema.sql
+          data: classpath:db/dept-dml.sql
+        - name: "emp"
+          type: org.h2.jdbcx.JdbcDataSource
+          url: jdbc:h2:mem:db_emp;DB_CLOSE_DELAY=1000
+          driver-class-name: org.h2.Driver
+          schema: classpath:db/employee-schema.sql
+          data: classpath:db/employee-dml.sql
+      default-data-source:
+        type: org.h2.jdbcx.JdbcDataSource
+        url: jdbc:h2:mem:db_default;DB_CLOSE_DELAY=1000
+        driver-class-name: org.h2.Driver
+        schema: classpath:db/*-schema.sql
+        data: classpath:db/*-dml.sql
