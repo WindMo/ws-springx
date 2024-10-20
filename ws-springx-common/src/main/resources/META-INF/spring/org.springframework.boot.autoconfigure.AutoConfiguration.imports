@@ -1,1 +1,2 @@
 ws.spring.ssh.autoconfigure.SshAutoConfiguration
+ws.spring.jdbc.dynamic.autoconfigure.DynamicDataSourceAutoConfiguration
