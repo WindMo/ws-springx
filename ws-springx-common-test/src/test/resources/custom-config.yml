@@ -1,0 +1,4 @@
+app:
+ test:
+   yaml-source:
+     custom-value: springx
