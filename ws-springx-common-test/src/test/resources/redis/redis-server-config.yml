@@ -1,0 +1,12 @@
+springx:
+  test:
+    redis:
+      port: ${spring.redis.port:6379}
+      stop-timeout: 3000
+      config-file-location: classpath:redis/redis.conf
+      windows:
+        location: classpath:redis/redis-server-2.8.19.exe
+      unix:
+        location: classpath:redis/redis-server-2.8.19
+      mac:
+        location: classpath:redis/redis-server-2.8.19.app
