@@ -21,6 +21,7 @@
         <spring-boot.version>2.7.18</spring-boot.version>
         <sshd-mina.version>2.12.0</sshd-mina.version>
         <bouncycastle.version>1.77</bouncycastle.version>
+        <mybatis-spring-boot.version>2.3.2</mybatis-spring-boot.version>
     </properties>
 
     <dependencies>
@@ -47,6 +48,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot</artifactId>
+                <version>${mybatis-spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
