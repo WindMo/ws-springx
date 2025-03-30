@@ -1,0 +1,13 @@
+spring:
+  sql:
+    init:
+      mode: embedded
+      schema-locations:
+        - classpath:db/employee-schema.sql
+      data-locations:
+        - classpath:db/employee-dml.sql
+  datasource:
+    name: "emp"
+    type: org.h2.jdbcx.JdbcDataSource
+    url: jdbc:h2:mem:db_emp;DB_CLOSE_DELAY=1000
+    driver-class-name: org.h2.Driver
