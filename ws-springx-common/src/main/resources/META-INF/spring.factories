@@ -1,0 +1,2 @@
+# Initializers
+org.springframework.context.ApplicationContextInitializer=ws.spring.context.annotation.TypeExcludeFilterRegistrar
