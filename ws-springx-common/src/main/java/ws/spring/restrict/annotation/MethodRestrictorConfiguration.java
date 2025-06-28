@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
+import ws.spring.context.annotation.ExactConfiguration;
 import ws.spring.restrict.FrequencyRestrictRegistrar;
 import ws.spring.restrict.FrequencyRestrictService;
 import ws.spring.restrict.MethodRestrictorPostProcessor;
@@ -15,7 +16,7 @@ import ws.spring.restrict.support.SimpleFrequencyRestrictService;
  * @version 2024-01-26.
  */
 
-@Configuration(proxyBeanMethods = false)
+@ExactConfiguration
 class MethodRestrictorConfiguration {
 
     @Bean

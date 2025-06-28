@@ -13,13 +13,14 @@ import ws.spring.aop.MethodPeeperPostProcessor;
 import ws.spring.aop.support.AbortGlobalMethodPeekHandler;
 import ws.spring.aop.support.AnnotationMethodPeeper;
 import ws.spring.aop.support.GlobalMethodPeekHandler;
+import ws.spring.context.annotation.ExactConfiguration;
 
 /**
  * @author WindShadow
  * @version 2022-01-21.
  */
 
-@Configuration(proxyBeanMethods = false)
+@ExactConfiguration
 class MethodPeekConfiguration {
 
     @Bean
