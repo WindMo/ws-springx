@@ -54,6 +54,9 @@ public class SshTests extends SpringxAppWebTests {
     @Value("${server.port}")
     private int serverPort;
 
+    @Value("${spring.ext.ssh.test.proxy.local-port}")
+    private int proxyPort;
+
     @Autowired
     private SshService sshService;
     private SshOperator operator;
@@ -178,6 +181,12 @@ public class SshTests extends SpringxAppWebTests {
     void autoForwardTest() {
 
         forwardTest(localPort);
+    }
+
+    @Test
+    void sshProxyTest() {
+
+        forwardTest(proxyPort);
     }
 
     private void forwardTest(int port) {

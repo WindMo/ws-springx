@@ -6,6 +6,11 @@ spring:
       test:
         local-server: 192.168.1.100
         local-port: 9090
+        proxy:
+          source: "main-key"
+          local-port: 9999
+          remote-host: ${spring.ext.ssh.test.local-server}
+          remote-port: ${server.port}
       enabled: true
       accounts:
         -[main]:
