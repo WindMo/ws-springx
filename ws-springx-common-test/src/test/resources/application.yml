@@ -1,0 +1,8 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration
+      - com.mybatisflex.spring.boot.MybatisFlexAutoConfiguration
+mybatis-flex:
+  global-config:
+    print-banner: false
