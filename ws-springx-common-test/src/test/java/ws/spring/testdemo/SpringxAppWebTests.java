@@ -9,6 +9,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
+import org.springframework.test.web.servlet.request.MockMultipartHttpServletRequestBuilder;
 import ws.spring.testdemo.util.JacksonUtils;
 import ws.spring.testdemo.web.rest.GlobalRest;
 import ws.spring.web.rest.response.RestResponse;
@@ -60,7 +61,7 @@ public class SpringxAppWebTests extends SpringxAppTests {
 
         try {
 
-            if (builder instanceof MockHttpServletRequestBuilder) {
+            if (MockHttpServletRequestBuilder.class == builder.getClass()) {
 
                 MockHttpServletRequestBuilder mockBuilder = (MockHttpServletRequestBuilder) builder;
                 mockBuilder.characterEncoding(StandardCharsets.UTF_8.name());
