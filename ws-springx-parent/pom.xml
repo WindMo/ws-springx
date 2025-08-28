@@ -18,6 +18,7 @@
 
     <properties>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
         <spring-boot.version>2.7.18</spring-boot.version>
         <sshd-mina.version>2.12.0</sshd-mina.version>
         <bouncycastle.version>1.77</bouncycastle.version>
@@ -99,6 +100,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+            </plugin>
         </plugins>
 
         <pluginManagement>
@@ -125,6 +130,33 @@
                             <goals>
                                 <goal>repackage</goal>
                             </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <inherited>true</inherited>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>global-enforce</id>
+                            <goals>
+                                <goal>enforce</goal>
+                            </goals>
+                            <phase>compile</phase>
+                            <configuration>
+                                <rules>
+                                    <bannedDependencies>
+                                        <excludes>
+                                            <exclude>com.alibaba:fastjson:*</exclude>
+                                            <exclude>com.google.code.gson:gson:*</exclude>
+                                        </excludes>
+                                        <message>禁止使用【Fastjson】【Gson】，请使用【Jackson】进行json序列化</message>
+                                    </bannedDependencies>
+                                </rules>
+                                <fail>true</fail>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
