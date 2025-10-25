@@ -5,7 +5,7 @@
     <parent>
         <groupId>ws.spring</groupId>
         <artifactId>ws-springx-parent</artifactId>
-        <version>1.0.1-SNAPSHOT</version>
+        <version>1.1.0-RELEASE</version>
         <relativePath>../ws-springx-parent/pom.xml</relativePath>
     </parent>
     <artifactId>ws-springx-common</artifactId>
