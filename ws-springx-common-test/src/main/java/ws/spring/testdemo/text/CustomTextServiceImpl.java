@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2025 莫千风
+ */
+
 package ws.spring.testdemo.text;
 
 import lombok.extern.slf4j.Slf4j;

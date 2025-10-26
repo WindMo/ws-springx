@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2025 莫千风
+ */
+
 package ws.spring.testdemo.mybatisflex;
 
 import com.mybatisflex.core.query.QueryWrapper;

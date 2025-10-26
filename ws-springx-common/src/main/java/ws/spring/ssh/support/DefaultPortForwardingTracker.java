@@ -1,3 +1,8 @@
+/*
+ * SPDX-License-Identifier: MIT
+ * Copyright (c) 2025 莫千风
+ */
+
 package ws.spring.ssh.support;
 
 import ws.spring.ssh.PortForwardingTracker;
